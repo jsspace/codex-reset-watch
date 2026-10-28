@@ -1,0 +1,16 @@
+{
+  "name": "codex-reset-watch",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node scripts/check.mjs",
+    "pack": "node scripts/pack.mjs",
+    "test:ui": "node scripts/ui-check.mjs",
+    "store:assets": "node scripts/store-assets.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

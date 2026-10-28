@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Codex Reset</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+<svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 10.5a8 8 0 1 0-2.1 7.1"/><path d="m20 4 .1 6.5-6.3-.2"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.1"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path class="gear-body" d="M19.02,9.09 L19.37,10.16 L21.36,10.35 L21.36,13.65 L19.37,13.84 L19.02,14.91 L18.51,15.91 L19.78,17.45 L17.45,19.78 L15.91,18.51 L14.91,19.02 L13.84,19.37 L13.65,21.36 L10.35,21.36 L10.16,19.37 L9.09,19.02 L8.09,18.51 L6.55,19.78 L4.22,17.45 L5.49,15.91 L4.98,14.91 L4.63,13.84 L2.64,13.65 L2.64,10.35 L4.63,10.16 L4.98,9.09 L5.49,8.09 L4.22,6.55 L6.55,4.22 L8.09,5.49 L9.09,4.98 L10.16,4.63 L10.35,2.64 L13.65,2.64 L13.84,4.63 L14.91,4.98 L15.91,5.49 L17.45,4.22 L19.78,6.55 L18.51,8.09 Z"/><circle cx="12" cy="12" r="3.1"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6L10 14m0-10H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M15 8V4H4v11h4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m10 5-7 7 7 7M3 12h18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5zM15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 4v16h16M8 15l4-5 4 2 4-7"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z"/></symbol>
+</defs></svg>
+<main>
+  <header class="app-header">
+    <div class="brand"><div class="brand-icon" aria-hidden="true"><img src="icons/icon.svg" width="28" height="28" alt=""></div><div><strong>Codex Reset</strong></div></div>
+    <div class="toolbar">
+      <div class="language-picker" id="language-picker">
+        <span class="sr-only" id="language-label" data-t="language"></span>
+        <button id="language" class="language-trigger" type="button" value="en" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-options" aria-labelledby="language-label language-value"><span id="language-value"></span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div id="language-options" class="language-options" role="listbox" aria-labelledby="language-label" hidden>
+          <div id="language-en" role="option" tabindex="-1" data-value="en" aria-selected="true"><span lang="en">English</span><svg aria-hidden="true"><use href="#i-check"/></svg></div>
+          <div id="language-zh" role="option" tabindex="-1" data-value="zh-CN" aria-selected="false"><span lang="zh-CN">简体中文</span><svg aria-hidden="true"><use href="#i-check"/></svg></div>
+          <div id="language-ja" role="option" tabindex="-1" data-value="ja" aria-selected="false"><span lang="ja">日本語</span><svg aria-hidden="true"><use href="#i-check"/></svg></div>
+          <div id="language-es" role="option" tabindex="-1" data-value="es" aria-selected="false"><span lang="es">Español</span><svg aria-hidden="true"><use href="#i-check"/></svg></div>
+          <div id="language-ar" role="option" tabindex="-1" data-value="ar" aria-selected="false"><span lang="ar" dir="rtl">العربية</span><svg aria-hidden="true"><use href="#i-check"/></svg></div>
+        </div>
+      </div>
+      <button class="icon-button" id="info" data-label="info"><svg><use href="#i-info"/></svg></button>
+      <button class="icon-button" id="open-settings" data-label="settings"><svg><use href="#i-settings"/></svg></button>
+      <button class="icon-button" id="refresh" data-label="refresh"><svg><use href="#i-refresh"/></svg></button>
+    </div>
+  </header>
+
+  <section id="overview-page" aria-label="Overview">
+
+    <article class="status-card" id="status-card">
+      <div class="status-top"><h1 id="status-title"></h1></div>
+      <div class="today-answer"><span id="today-value"></span><span id="relative-separator" aria-hidden="true">·</span><span id="last-relative"></span></div>
+      <div class="status-bottom"><div class="reset-detail" id="reset-detail"><span id="last-reset"></span><span aria-hidden="true">·</span><span id="time-zone"></span></div><a id="event-link" target="_blank" rel="noreferrer" hidden><span data-t="viewSource"></span> ↗</a></div>
+      <div class="today-context"><span id="today-note"></span></div>
+    </article>
+
+    <article class="forecast-card">
+      <div class="section-heading"><h2 data-t="nextForecast"></h2></div>
+      <div class="odds"><div class="metric"><span data-t="next24"></span><strong id="p24">—</strong></div><div class="metric"><span data-t="next48"></span><strong id="p48">—</strong></div></div>
+    </article>
+  </section>
+
+  <section id="settings-page" hidden aria-labelledby="settings-title">
+    <nav class="page-nav"><button class="back-button" data-home><svg><use href="#i-arrow"/></svg><span data-t="back"></span></button><h1 id="settings-title" data-t="settings"></h1></nav>
+    <form id="settings" class="settings-card">
+      <label class="setting-row"><svg class="setting-icon"><use href="#i-bell"/></svg><span class="setting-copy"><strong data-t="notifications"></strong><span data-t="notificationsHint"></span></span><input class="switch" id="notifications" type="checkbox" role="switch"></label>
+      <label class="setting-row"><svg class="setting-icon"><use href="#i-volume"/></svg><span class="setting-copy"><strong data-t="sound"></strong><span data-t="soundHint"></span></span><input class="switch" id="sound" type="checkbox" role="switch"></label>
+      <div class="preferences"><label class="preference-row"><span data-t="themeLabel"></span><select id="theme"><option value="auto" data-t="systemTheme"></option><option value="light" data-t="lightTheme"></option><option value="dark" data-t="darkTheme"></option></select></label><label class="preference-row"><span data-t="threshold"></span><select id="threshold"><option value="80">80%</option><option value="90">90%</option><option value="95">95%</option><option value="99">99%</option></select></label><p class="quiet" data-t="thresholdHint"></p><label class="preference-row"><span data-t="repeat"></span><select id="repeat"><option value="0" data-t="off"></option><option value="5" data-minutes="5"></option><option value="15" data-minutes="15"></option><option value="30" data-minutes="30"></option><option value="60" data-minutes="60"></option></select></label></div>
+      <div class="settings-actions"><button id="test-notification" class="button secondary" type="button"><svg><use href="#i-play"/></svg><span data-t="test"></span></button><button class="button primary" type="submit" data-t="save"></button></div>
+    </form>
+    <p class="caveat" data-t="settingsNote"></p>
+  </section>
+
+  <section id="info-page" hidden aria-labelledby="guide-title">
+    <nav class="page-nav"><button class="back-button" data-home><svg><use href="#i-arrow"/></svg><span data-t="back"></span></button><span id="guide-title" data-t="info"></span></nav>
+    <article class="guide-card">
+      <div class="guide-row"><span class="example-badge green" id="example-set">SET</span><div><h2 data-t="guideAnnounced"></h2><p data-t="guideAnnouncedBody"></p></div></div>
+      <div class="guide-row"><span class="example-badge blue">95%</span><div><h2 data-t="guideForecast"></h2><p data-t="guideForecastBody"></p></div></div>
+      <div class="guide-row"><span class="example-badge gray">?</span><div><h2 data-t="guideUnknown"></h2><p data-t="guideUnknownBody"></p></div></div>
+      <div class="guide-actions"><span class="design-credit">Design by yimin</span><button class="button primary guide-done" data-home data-t="gotIt"></button></div>
+    </article>
+  </section>
+  <p id="feedback" role="status" aria-live="polite" hidden></p>
+  <footer><span id="connection" class="connection"><span class="dot"></span><span id="checked"></span></span><a href="https://codex-reset.com/" target="_blank" rel="noreferrer"><span data-t="data"></span>: codex-reset.com <svg><use href="#i-external"/></svg></a></footer>
+</main>
+<script type="module" src="popup.js"></script>
+</body></html>
